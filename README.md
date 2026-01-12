@@ -50,40 +50,62 @@ This project implements and compares **8 different methods** for unsupervised mu
 vae-music-clustering/
 │
 ├── data/
-│   ├── genres/                              # GTZAN audio files (10 genres)
-│   ├── processed_features.pkl               # Preprocessed MFCC features
-│   ├── lyrics_features.pkl                  # TF-IDF lyrics embeddings
-│   ├── latent_features.pkl                  # VAE latent representations
-│   ├── latent_features_conv_vae.pkl         # Conv VAE features
-│   ├── latent_features_beta*.pkl            # Beta-VAE features (β=1,2,4)
-│   └── latent_features_multimodal.pkl       # Multi-modal features
+│   ├── audio/
+│   │   └── Data/                            # Raw GTZAN audio files
+│   │
+│   ├── lyrics/                              # Raw lyrics data
+│   │
+│   ├── data_processed/
+│   │   ├── processed_features.pkl           # Preprocessed MFCC features
+│   │   ├── lyrics_features.pkl              # Lyrics embeddings
+│   │   ├── latent_features.pkl              # Standard VAE latent features
+│   │   ├── latent_features_autoencoder.pkl  # Autoencoder features
+│   │   ├── latent_features_conv_vae.pkl     # Conv VAE features
+│   │   ├── latent_features_beta1.0.pkl      # Beta-VAE (β=1.0)
+│   │   ├── latent_features_beta2.0.pkl      # Beta-VAE (β=2.0)
+│   │   ├── latent_features_beta4.0.pkl      # Beta-VAE (β=4.0)
+│   │   └── latent_features_multimodal.pkl   # Multi-modal VAE features
 │
 ├── src/
-│   ├── vae.py                               # Standard VAE architecture
-│   ├── conv_vae.py                          # 1D Convolutional VAE
-│   ├── beta_vae.py                          # Beta-VAE implementation
-│   ├── multimodal_vae.py                    # Audio + Lyrics VAE
-│   ├── autoencoder.py                       # Standard Autoencoder baseline
-│   ├── dataset.py                           # Data loading utilities
-│   ├── clustering.py                        # K-Means, DBSCAN, Agglomerative
-│   └── evaluation.py                        # All 6 metrics computation
+│   ├── models/
+│   │   ├── vae.py                           # Standard VAE architecture
+│   │   ├── conv_vae.py                      # Convolutional VAE
+│   │   └── autoencoder.py                   # Autoencoder baseline
+│   │
+│   ├── training/
+│   │   ├── train_autoencoder.py
+│   │   ├── train_beta_vae.py
+│   │   ├── train_conv_vae.py
+│   │   └── train_multimodal_vae.py
+│   │
+│   ├── runners/
+│   │   ├── run_autoencoder.py
+│   │   ├── run_beta_vae.py
+│   │   ├── run_conv_vae.py
+│   │   └── run_multimodal_vae.py
+│   │
+│   ├── scripts/
+│   │   ├── run_full_pipeline.py             # End-to-end execution
+│   │   ├── run_conv_vae_eval.py
+│   │   └── run_multimodal_eval.py
+│   │
+│   ├── dataset.py                           # Dataset loading utilities
+│   ├── feature_loader.py                   # Feature extraction helpers
+│   ├── clustering.py                       # K-Means, Agglomerative, DBSCAN
+│   ├── evaluation.py                       # Clustering metrics
+│   └── comparison.py                       # Method comparison utilities
+│
+├── notebooks/
+│   └── exploratory.ipynb                    # Data exploration & analysis
 │
 ├── results/
-│   ├── *.png                                # 15+ visualizations
-│   ├── *.csv                                # Comparison metrics
-│   └── *.pth                                # Trained model checkpoints
+│   ├── clustering_metrics.csv
+│   ├── beta_vae_metrics_comparison.csv
+│   ├── complete_comparison_with_conv.csv
+│   └── latent_visualization/
+│       └── *.png                            # t-SNE, UMAP, heatmaps, training curves
 │
-├── train_vae.py                             # Train standard VAE
-├── train_conv_vae.py                        # Train Conv VAE
-├── train_beta_vae.py                        # Train Beta-VAE variants
-├── train_multimodal_vae.py                  # Train Multi-Modal VAE
-├── train_autoencoder.py                     # Train baseline AE
-├── evaluate_clustering.py                   # Evaluate all methods
-├── compare_all_methods.py                   # Comprehensive comparison
-├── preprocess_data.py                       # Extract MFCC + lyrics features
-│
-├── report.pdf                               # 9-page NeurIPS paper
-├── README.md                                # This file
+├── README.md                                # Project documentation
 └── requirements.txt                         # Python dependencies
 ```
 
