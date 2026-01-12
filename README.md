@@ -141,33 +141,59 @@ pip install -r requirements.txt
 ### Data Preprocessing
 
 ```bash
-# Extract MFCC features and lyrics embeddings
-python preprocess_data.py
+# Load audio & lyrics features (MFCC + text embeddings)
+python src/scripts/run_full_pipeline.py
 
-# Output: data/processed_features.pkl, data/lyrics_features.pkl
+# Output:
+data/data_processed/
+├── processed_features.pkl
+├── lyrics_features.pkl
+
 ```
 
 ### Training Models
 
 ```bash
-# Train all models (takes ~30 minutes total)
-python train_vae.py                    # Standard VAE (~5 min)
-python train_conv_vae.py               # Conv VAE (~5 min)
-python train_beta_vae.py               # Beta-VAE (3 variants, ~10 min)
-python train_multimodal_vae.py         # Multi-Modal VAE (~5 min)
-python train_autoencoder.py            # Autoencoder (~5 min)
+# Train Autoencoder
+python src/runners/run_autoencoder.py
+
+# Train Standard VAE
+python src/runners/run_beta_vae.py --beta 1.0
+
+# Train Beta-VAE variants
+python src/runners/run_beta_vae.py --beta 2.0
+python src/runners/run_beta_vae.py --beta 4.0
+
+# Train Convolutional VAE
+python src/runners/run_conv_vae.py
+
+# Train Multi-Modal VAE (audio + lyrics)
+python src/runners/run_multimodal_vae.py
+
+# Results saved to:
+data/data_processed/
+├── latent_features_autoencoder.pkl
+├── latent_features.pkl
+├── latent_features_beta*.pkl
+├── latent_features_conv_vae.pkl
+└── latent_features_multimodal.pkl
+
 ```
 
 ### Evaluation & Comparison
 
 ```bash
-# Evaluate clustering performance
-python evaluate_clustering.py
+# Evaluate clustering performance across models
+python src/scripts/run_full_pipeline.py
 
-# Generate comprehensive comparison (8 methods)
-python compare_all_methods.py
 
-# Results saved to: results/complete_comparison.csv
+# Results saved to:
+results/
+├── clustering_metrics.csv
+├── beta_vae_metrics_comparison.csv
+├── complete_comparison_with_conv.csv
+└── latent_visualization/
+
 ```
 
 ---
