@@ -303,15 +303,15 @@ If you use this work, please cite:
 ## 🎓 Course Information
 
 - **Course:** Neural Networks
-- **Institution:** [Your University]
-- **Instructor:** [Instructor Name]
+- **Institution:** Brac University
+- **Instructor:** Moin Mostakim
 - **Submission Date:** January 10, 2026
 
 ---
 
 ## 📄 Report
 
-Full technical report available: [**report.pdf**](report.pdf)
+Full technical report available here: [PDF](https://drive.google.com/file/d/1Ss069wBPjoiRo9T0RrVEut1lg6E7XsoD/view?usp=sharing)
 
 The 9-page NeurIPS-format paper includes:
 - Detailed methodology and architecture descriptions
