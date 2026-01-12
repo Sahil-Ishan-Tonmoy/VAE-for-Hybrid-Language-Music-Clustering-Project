@@ -1,0 +1,82 @@
+# ===============================
+# Python
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+.env/
+.envrc/
+
+# ===============================
+# Jupyter Notebooks
+# ===============================
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# ===============================
+# PyTorch / ML artifacts
+# ===============================
+*.pth
+*.pt
+*.ckpt
+
+# ===============================
+# Data (large / generated)
+# ===============================
+data/audio/genres
+data/audio/Data/images_original
+data/lyrics/*
+*.zip
+
+# ===============================
+# Experiment outputs
+# ===============================
+logs/
+wandb/
+tensorboard/
+runs/
+
+# ===============================
+# LaTeX build files
+# ===============================
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.sty
+*.pdf
+*.tex
+
+# ===============================
+# OS / Editor junk
+# ===============================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===============================
+# Temporary / cache files
+# ===============================
+*.tmp
+*.bak
+*.cache
+
+# ===============================
+# Misc
+# ===============================
+archive/
