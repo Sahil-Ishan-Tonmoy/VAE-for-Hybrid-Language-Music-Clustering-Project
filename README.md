@@ -333,16 +333,13 @@ The 9-page NeurIPS-format paper includes:
 
 ## 📧 Contact
 
-**Moin Mostakim**  
-- Email: [your.email@example.com]
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-
+**Sahil Ishan Tonmoy**  
+- Email: sahilishantonmoy@gmail.com
 ---
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ---
 
